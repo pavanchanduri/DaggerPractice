@@ -43,6 +43,10 @@ public class UserRegistration {
      * @param args Command line arguments (not used in this example).
      */
     public static void main(String[] args) {
-        new UserRegistration();
+        // Create an instance of UserRegistration to trigger dependency injection
+        UserRegistration userRegistration = new UserRegistration();
+        
+        // The user registration process is simulated in the constructor
+        System.out.println("User registration process completed.");
     }
 }

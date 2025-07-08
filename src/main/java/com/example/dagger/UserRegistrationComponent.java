@@ -3,17 +3,31 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
+/**
+ * UserRegistrationComponent is a Dagger component that provides dependencies for the UserRegistration class.
+ * It includes modules that provide the necessary dependencies for user registration functionality. 
+ * This component is annotated with @Singleton to ensure that the provided dependencies are singletons,
+ * meaning that only one instance of each dependency will be created and shared throughout the application.
+ */
 @Singleton
 @Component(modules = {SaveUser.class, SendEmail.class})
-// This interface defines the component for Dagger dependency injection
-// It specifies the modules that provide dependencies for user registration
-// The @Singleton annotation indicates that the component will have a single instance
-// throughout the application lifecycle
-// The methods in this interface will be used to inject dependencies into the classes that require them
-
 public interface UserRegistrationComponent {
-    // This method will be used to inject dependencies into the UserRegistration class
+    /**
+     * Injects dependencies into the UserRegistration class.
+     * This method is used by Dagger to perform dependency injection.
+     * It allows the UserRegistration class to receive instances of its dependencies,
+     * such as SaveUser and SendEmail, which are provided by the Dagger component.
+     * @param userRegistration
+     */
     void inject(UserRegistration userRegistration);
     
-    // Additional methods can be added here to provide other dependencies if needed
+    /**
+     * Provides an instance of UserRegistrationComponent.
+     * This method is used to create an instance of the UserRegistrationComponent,
+     * which is responsible for providing the dependencies required by the UserRegistration class.
+     * @return An instance of UserRegistrationComponent.
+     */
+    static UserRegistrationComponent create() {
+        return DaggerUserRegistrationComponent.create();
+    }
 }
