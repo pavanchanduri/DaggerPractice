@@ -44,7 +44,7 @@ public class UserRegistration {
      */
     public static void main(String[] args) {
         // Create an instance of UserRegistration to trigger dependency injection
-        UserRegistration userRegistration = new UserRegistration();
+        new UserRegistration();
         
         // The user registration process is simulated in the constructor
         System.out.println("User registration process completed.");
